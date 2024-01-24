@@ -1,3 +1,16 @@
+
+# mac file
+.DS_STORE
+
+# PyTorch checkpoint files
+*.ckpt
+
+# virtualenv dir
+venv/
+
+# ----------------------------------------
+# Python ignore list
+# ----------------------------------------
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
