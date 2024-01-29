@@ -17,7 +17,7 @@ cnn_data*.json
 venv/
 
 # Private doc directory
-/doc/private/
+/docs/private/
 
 # ----------------------------------------
 # Python ignore list
