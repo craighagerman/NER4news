@@ -1,4 +1,12 @@
 
+
+# env file (store secrets and non-public config variables)
+.env
+
+# input data
+cnn_data.zip
+cnn_data*.json
+
 # mac file
 .DS_STORE
 
@@ -7,6 +15,9 @@
 
 # virtualenv dir
 venv/
+
+# Private doc directory
+/doc/private/
 
 # ----------------------------------------
 # Python ignore list
