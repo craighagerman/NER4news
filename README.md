@@ -269,6 +269,35 @@ Unfortunately Spacy recommends training from scratch rather than fine tuning the
 Both BERT and Flair models can be fine-tuned to improve performance and mitigate such errors. 
 
 
+
+------------------------------------------------------------------
+
+
+## Code Philosophy
+- [ ] Create a document to describe my philsophy about coding best practices and explain/describe differences between ML/DS and SE and explain how I AM folling best practices for my field. 
+
+My overall coding philosophy is summed up by Sandi Metz: "Make small things"
+
+- [Sandi Metz: OOD and Refactoring | YouTube](https://www.youtube.com/watch?v=8bZh5LMaSmE&list=PLg8u8tlvFV2irT3bfrXiUnlSvSOn7e7NQ)
+- [Sandi Metz](https://sandimetz.com/products)
+
+I try to follow Clean Code / Clean Architecture principles while also trying to be "Pythonic" and make use of Software Engineering best practices for python.
+e.g. follow SOLID principles; use type hints; write unit tests; use pre-commit hooks to run linter, formatter, unit tests
+
+But at the same time I write code to follow data science / machine learning best practices. I try to create modular DAG pipelines where one stage (e.g. NER model) can be easily swapped out and replaced. Functional programming principles are REALLY helpful for ML data processing (i.e. no side effects, treat data as immutable)
+
+Jupyter notebooks are REALLY common in data science / machine learning. They are great for a few different uses
+- experiments & exploration; trying stuff out
+- communication (combining code, narrative text, and visualizations in one place)
+- running ML jobs on a cloud server
+
+see the section on "Notebooks are for exploration and communication" here:
+- [cookiecutter-data-science](https://drivendata.github.io/cookiecutter-data-science/)
+
+Recently, I mostly use Jupyter notebooks for script to run on a cloud GPU server. I use [Vast.ai](https://vast.ai/) and [TensorDock](https://www.tensordock.com/) to rent GPUs for personal projects and have used AWS for the same. This is a different style of coding for a narrow purpose - building an environment and running a GPU-powered task as a non-automated task.
+
+
+
 ------------------------------------------------------------------
 
 ## Entity Disambiguation / Linking Entities
@@ -303,3 +332,23 @@ This notebook:
 gives a good overview of fine-tuning a BERT model. This approach requires having/using a labeled dataset. (Goes without saying a lot of data is needed as well.)
 
 It might be possible to fine-tune on OntoNotes dataset to improve performance. (Would have to experiement with this.) Most NLP papers use open datasets so there may be other alternate data sources that could be used for labeled data. Otherwise, most of the effort for improving a model's performance would actually be in labeling a large amount of data to use within a fine-tuning pipeline. 
+
+
+### Other extensions
+
+**API**
+I didn't take the time, but I think a good extension would be to add an API to annotate test with entities. Could have API routes for either (1) posting a document or (2) posting a URL. In the latter case fetch and parse the body of the URL and annotate. I'd write an API in fastAPI library.
+
+**Text - Entity format**
+I wasn't sure what format to annotate texts with. I think this could be improved, but depends on the use case. Some ideas
+
+(1) deduplicate the entity list
+- there is no need to have listed more than once("Kingsbarns", "FAC")
+
+(2) return a JSON object containing all Entity classes as keys and values are a list of those
+- e.g. {"PERSON": ["Brad Pitt", "Dolly Parton"]}
+
+(3) reverse the mapping to have entity -> class. Could also then allow for entity linking
+- e.g. {"Dolly Parton" : {"class": "PERSON", "wiki_link": "https://en.wikipedia.org/wiki/Dolly_Parton"}}
+
+
