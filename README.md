@@ -2,7 +2,7 @@
 Named Entity Recognition for news articles
 
 
---------------------
+------------------------------------------------------------------
 
 ## Getting Started
 
@@ -57,7 +57,7 @@ $ pyenv deactivate
 ```
 
 
---------------------
+------------------------------------------------------------------
 
 
 ## Extract NER entities and enrich articles
@@ -77,9 +77,7 @@ $ python ner4news/pipeline.py data/raw/cnn_data.zip 10
 Which should only take a couple of minutes to run
 
 
-
-
---------------------
+------------------------------------------------------------------
 
 ## Repo overview
 
@@ -113,7 +111,7 @@ The repo contains the following directories
 `preprocess.py`
 - Contains a class for preprocessing input data
 
-`ner.py``
+`ner.py`
 - Contains a class for enriching an Article object with NER entities (using Spacy)
 
 
@@ -124,11 +122,7 @@ The repo contains the following directories
 - helper functions
 
 
-
-
-
-
---------------------
+------------------------------------------------------------------
 
 ## The Approach
 
@@ -146,7 +140,7 @@ I chose approach #1 above using Spacy.
 - It is also the only model (of the 4 I experimented with) which handled MORE than 4 NER class labels. (The CONLL2003 dataset that many NER models are trained on contains only PERSON, ORGANIZATION, LOCATION and MISCELLANEOUS). Since there are more entity classes mentioned in the requirements this makes Spacy a good choice. 
 
 
-
+------------------------------------------------------------------
 
 ## Data Preprocessing
 
@@ -164,6 +158,7 @@ The data preprocessing does the following
 n.b. No other data wrangling or preprocessing is needed. The NER models I used include robust tokenization and do not require more than clean sentences as input.
 
 
+------------------------------------------------------------------
 
 ## Model Evaluation
 
@@ -252,6 +247,8 @@ see: [Evaluation_results_spacy_trf.txt](data/interim/evaluation_results_spacy_tr
 
 This evaluation shows that of the 3 classes with overlap with the CONLL classes, PERSON has much higher Precision and F1 measures than ORGANIZATION and LOCATION. LOCATION has the lowest score of the three. 
 
+
+------------------------------------------------------------------
 
 ### Error Analysis
 
