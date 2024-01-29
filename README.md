@@ -16,6 +16,14 @@ References
 - [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
 
 
+### Download CNN data 
+
+Download the CNN News Data Set from data.world:
+- [cnn-news-dataset](https://data.world/opensnippets/cnn-news-dataset)
+
+and put it in `data/raw/cnn_data.zip`
+
+
 ### Install a python version into pyenv
 
 ```
